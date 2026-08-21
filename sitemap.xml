@@ -1,49 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>index.html</loc>
+    <loc>https://vinay4772.github.io/numbora-tools/</loc>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>about.html</loc>
+    <loc>https://vinay4772.github.io/numbora-tools/about.html</loc>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>privacy.html</loc>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>terms.html</loc>
+    <loc>https://vinay4772.github.io/numbora-tools/privacy.html</loc>
     <priority>0.3</priority>
   </url>
 
-  <!-- Calculators -->
-  <url><loc>tools/age-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/percentage-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/cgpa-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/salary-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/discount-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/gst-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/bmi-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/fraction-calculator/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/scientific-calculator/index.html</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/terms.html</loc>
+    <priority>0.3</priority>
+  </url>
 
-  <!-- Date & Time -->
-  <url><loc>tools/date-difference/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/time-duration/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/countdown-timer/index.html</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/age-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
 
-  <!-- Converters -->
-  <url><loc>tools/unit-converter/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/temperature-converter/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/data-storage-converter/index.html</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/percentage-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
 
-  <!-- Text Tools -->
-  <url><loc>tools/word-counter/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/character-counter/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/case-converter/index.html</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/cgpa-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
 
-  <!-- Image & Utility Tools -->
-  <url><loc>tools/image-resizer/index.html</loc><priority>0.8</priority></url>
-  <url><loc>tools/qr-generator/index.html</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/salary-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/discount-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/gst-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/bmi-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/fraction-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/scientific-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/date-difference/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/time-duration/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/countdown-timer/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/unit-converter/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/temperature-converter/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/data-storage-converter/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/word-counter/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/character-counter/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/case-converter/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/image-resizer/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vinay4772.github.io/numbora-tools/tools/qr-generator/</loc>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
