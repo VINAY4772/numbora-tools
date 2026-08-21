@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>index.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>about.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>privacy.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>terms.html</loc>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Calculators -->
+  <url><loc>tools/age-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/percentage-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/cgpa-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/salary-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/discount-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/gst-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/bmi-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/fraction-calculator/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/scientific-calculator/index.html</loc><priority>0.8</priority></url>
+
+  <!-- Date & Time -->
+  <url><loc>tools/date-difference/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/time-duration/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/countdown-timer/index.html</loc><priority>0.8</priority></url>
+
+  <!-- Converters -->
+  <url><loc>tools/unit-converter/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/temperature-converter/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/data-storage-converter/index.html</loc><priority>0.8</priority></url>
+
+  <!-- Text Tools -->
+  <url><loc>tools/word-counter/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/character-counter/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/case-converter/index.html</loc><priority>0.8</priority></url>
+
+  <!-- Image & Utility Tools -->
+  <url><loc>tools/image-resizer/index.html</loc><priority>0.8</priority></url>
+  <url><loc>tools/qr-generator/index.html</loc><priority>0.8</priority></url>
+</urlset>

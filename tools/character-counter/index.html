@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Character Counter - Detailed Character & Digit Analysis - Numbora</title>
+  <meta name="description" content="Detailed character count & digit breakdown tool. Analyze letters, digits (0-9), spaces, symbols, and character frequency in real-time on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Word Counter</a></li>
+        <li><a href="../character-counter/index.html" class="nav-link active">Text Tools</a></li>
+        <li><a href="../case-converter/index.html" class="nav-link">Case Converter</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#text-tools">Text Tools</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Character Counter</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge-text">Text Tool</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Character & Digit Counter</h1>
+      <p style="color: var(--text-sub);">Instant breakdown analyzing total characters, letters, digits (0-9), spaces, symbols, and character occurrence frequencies.</p>
+    </div>
+
+    <!-- Live Counter Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px;">
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--primary);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Total Characters</div>
+        <div id="cnt-total" style="font-size: 1.7rem; font-weight: 800; color: var(--primary); margin-top: 4px;">0</div>
+      </div>
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--text-main);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Without Spaces</div>
+        <div id="cnt-nospaces" style="font-size: 1.7rem; font-weight: 800; color: var(--text-main); margin-top: 4px;">0</div>
+      </div>
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--accent-cyan);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Words</div>
+        <div id="cnt-words" style="font-size: 1.7rem; font-weight: 800; color: var(--accent-cyan); margin-top: 4px;">0</div>
+      </div>
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--primary);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Letters (A-Z)</div>
+        <div id="cnt-letters" style="font-size: 1.7rem; font-weight: 800; color: var(--primary); margin-top: 4px;">0</div>
+      </div>
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--accent-amber);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Digits (0-9)</div>
+        <div id="cnt-digits" style="font-size: 1.7rem; font-weight: 800; color: var(--accent-amber); margin-top: 4px;">0</div>
+      </div>
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--text-muted);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Spaces</div>
+        <div id="cnt-spaces" style="font-size: 1.7rem; font-weight: 800; color: var(--text-main); margin-top: 4px;">0</div>
+      </div>
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--accent-rose);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Special Symbols</div>
+        <div id="cnt-symbols" style="font-size: 1.7rem; font-weight: 800; color: var(--accent-rose); margin-top: 4px;">0</div>
+      </div>
+      <div class="card" style="padding: 14px 10px; text-align: center; border-top: 3px solid var(--accent-cyan);">
+        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Lines</div>
+        <div id="cnt-lines" style="font-size: 1.7rem; font-weight: 800; color: var(--accent-cyan); margin-top: 4px;">0</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom: 24px;">
+      <!-- Main Input Card -->
+      <div class="card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <label class="input-label" for="char-input" style="font-size: 1rem; font-weight: 700; margin: 0;">Main Text Input</label>
+          <div style="display: flex; gap: 8px;">
+            <button id="btn-copy" class="btn btn-primary" style="padding: 6px 12px; font-size: 0.8rem;">📋 Copy Text</button>
+            <button id="btn-clear" class="btn btn-danger" style="padding: 6px 12px; font-size: 0.8rem;">Clear</button>
+          </div>
+        </div>
+        <textarea id="char-input" class="input-control" rows="12" placeholder="Type or paste your text here..." style="font-family: inherit; font-size: 1rem; line-height: 1.6; padding: 16px;"></textarea>
+      </div>
+
+      <!-- Frequency & Digit Breakdown Cards -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Digit Breakdown (0-9) -->
+        <div class="card" style="border: 1px solid rgba(217, 119, 6, 0.3);">
+          <h3 style="margin-bottom: 12px; font-size: 1.05rem; color: var(--accent-amber); display: flex; align-items: center; gap: 6px;">
+            <span>🔢 Digit Breakdown (Which Numbers Are Present)</span>
+          </h3>
+          <div id="digits-breakdown" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <!-- Generated dynamically by script.js -->
+          </div>
+        </div>
+
+        <!-- Character Frequency Table -->
+        <div class="card" style="border: 1px solid var(--border-color);">
+          <h3 style="margin-bottom: 12px; font-size: 1.05rem; color: var(--text-main);">
+            📊 Character Occurrence Frequency
+          </h3>
+          <div style="overflow-x: auto; max-height: 280px; overflow-y: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;">
+              <thead>
+                <tr style="background: var(--bg-input); color: var(--text-sub); border-bottom: 2px solid var(--border-color);">
+                  <th style="padding: 8px 12px;">Char</th>
+                  <th style="padding: 8px 12px;">Count</th>
+                  <th style="padding: 8px 12px;">Percentage Share</th>
+                </tr>
+              </thead>
+              <tbody id="freq-table-body">
+                <!-- Generated dynamically by script.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

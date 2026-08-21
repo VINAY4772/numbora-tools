@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Clip paths for the four quadrants with central spacing -->
+    <clipPath id="top-left">
+      <path d="M 242 20 A 236 236 0 0 0 20 242 L 242 242 Z" />
+    </clipPath>
+    <clipPath id="top-right">
+      <path d="M 270 20 A 236 236 0 0 1 492 242 L 270 242 Z" />
+    </clipPath>
+    <clipPath id="bottom-left">
+      <path d="M 20 270 A 236 236 0 0 0 242 492 L 242 270 Z" />
+    </clipPath>
+    <clipPath id="bottom-right">
+      <path d="M 270 492 A 236 236 0 0 0 492 270 L 270 270 Z" />
+    </clipPath>
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <g filter="url(#subtle-shadow)">
+    <!-- Top-Left: Science / Chemistry (Green #22a945) -->
+    <rect x="0" y="0" width="256" height="256" fill="#22a945" clip-path="url(#top-left)" />
+    <!-- Flask & Bubbles in Top-Left -->
+    <!-- Flask -->
+    <g clip-path="url(#top-left)" stroke="#ffffff" fill="#ffffff">
+      <!-- Bubbles -->
+      <circle cx="95" cy="180" r="10" fill="none" stroke-width="4" />
+      <circle cx="70" cy="140" r="7" fill="none" stroke-width="4" />
+      <circle cx="120" cy="120" r="9" fill="none" stroke-width="4" />
+      <circle cx="150" cy="80" r="12" fill="none" stroke-width="5" />
+      <circle cx="180" cy="60" r="6" fill="none" stroke-width="4" />
+      <circle cx="195" cy="95" r="8" fill="none" stroke-width="4" />
+      
+      <!-- Angled Measuring Flask / Tube -->
+      <g transform="translate(145, 175) rotate(-45) translate(-145, -175)">
+        <rect x="133" y="85" width="24" height="110" rx="12" fill="none" stroke-width="12" stroke="#ffffff" />
+        <line x1="145" y1="110" x2="155" y2="110" stroke-width="4" stroke="#ffffff" />
+        <line x1="145" y1="125" x2="155" y2="125" stroke-width="4" stroke="#ffffff" />
+        <line x1="145" y1="140" x2="155" y2="140" stroke-width="4" stroke="#ffffff" />
+        <line x1="145" y1="155" x2="155" y2="155" stroke-width="4" stroke="#ffffff" />
+        <line x1="145" y1="170" x2="155" y2="170" stroke-width="4" stroke="#ffffff" />
+      </g>
+    </g>
+
+    <!-- Top-Right: Biology / Molecule Structure (Orange #f37021) -->
+    <rect x="256" y="0" width="256" height="256" fill="#f37021" clip-path="url(#top-right)" />
+    <!-- Molecular Hexagonal Network -->
+    <g clip-path="url(#top-right)" stroke="#ffffff" stroke-width="5" fill="#ffffff">
+      <!-- Molecular lattice nodes & bonds -->
+      <!-- Center node -->
+      <line x1="381" y1="140" x2="340" y2="165" />
+      <line x1="381" y1="140" x2="422" y2="165" />
+      <line x1="381" y1="140" x2="381" y2="90" />
+      <line x1="381" y1="90" x2="340" y2="65" />
+      <line x1="381" y1="90" x2="422" y2="65" />
+      <line x1="340" y1="65" x2="305" y2="85" />
+      <line x1="340" y1="165" x2="305" y2="145" />
+      <line x1="305" y1="85" x2="305" y2="145" />
+      
+      <line x1="422" y1="65" x2="455" y2="85" />
+      <line x1="422" y1="165" x2="455" y2="145" />
+      <line x1="455" y1="85" x2="455" y2="145" />
+      
+      <line x1="340" y1="165" x2="340" y2="210" />
+      <line x1="422" y1="165" x2="422" y2="210" />
+      <line x1="381" y1="230" x2="340" y2="210" />
+      <line x1="381" y1="230" x2="422" y2="210" />
+
+      <!-- Nodes -->
+      <circle cx="381" cy="140" r="11" />
+      <circle cx="340" cy="165" r="10" />
+      <circle cx="422" cy="165" r="10" />
+      <circle cx="381" cy="90" r="10" />
+      <circle cx="340" cy="65" r="9" />
+      <circle cx="422" cy="65" r="9" />
+      <circle cx="305" cy="85" r="8" />
+      <circle cx="305" cy="145" r="8" />
+      <circle cx="455" cy="85" r="8" />
+      <circle cx="455" cy="145" r="8" />
+      <circle cx="340" cy="210" r="8" />
+      <circle cx="422" cy="210" r="8" />
+      <circle cx="381" cy="230" r="7" />
+    </g>
+
+    <!-- Bottom-Left: Engineering / Gears (Red #d62232) -->
+    <rect x="0" y="256" width="256" height="256" fill="#d62232" clip-path="url(#bottom-left)" />
+    <!-- Gear Assembly -->
+    <g clip-path="url(#bottom-left)" fill="#ffffff">
+      <!-- Main big gear (Bottom right of quad) -->
+      <g transform="translate(165, 385)">
+        <circle cx="0" cy="0" r="44" fill="#ffffff" />
+        <circle cx="0" cy="0" r="18" fill="#d62232" />
+        <!-- Cog teeth -->
+        <g stroke="#ffffff" stroke-width="14" stroke-linecap="round">
+          <line x1="0" y1="-50" x2="0" y2="50" />
+          <line x1="-50" y1="0" x2="50" y2="0" />
+          <line x1="-35" y1="-35" x2="35" y2="35" />
+          <line x1="-35" y1="35" x2="35" y2="-35" />
+          <line x1="-46" y1="-19" x2="46" y2="19" />
+          <line x1="-19" y1="-46" x2="19" y2="46" />
+          <line x1="-46" y1="19" x2="46" y2="-19" />
+          <line x1="-19" y1="46" x2="19" y2="-46" />
+        </g>
+      </g>
+
+      <!-- Medium upper gear -->
+      <g transform="translate(160, 310)">
+        <circle cx="0" cy="0" r="30" fill="#ffffff" />
+        <circle cx="0" cy="0" r="12" fill="#d62232" />
+        <!-- Cog teeth -->
+        <g stroke="#ffffff" stroke-width="10" stroke-linecap="round">
+          <line x1="0" y1="-35" x2="0" y2="35" />
+          <line x1="-35" y1="0" x2="35" y2="0" />
+          <line x1="-25" y1="-25" x2="25" y2="25" />
+          <line x1="-25" y1="25" x2="25" y2="-25" />
+        </g>
+      </g>
+
+      <!-- Left gear -->
+      <g transform="translate(95, 355)">
+        <circle cx="0" cy="0" r="32" fill="#ffffff" />
+        <circle cx="0" cy="0" r="13" fill="#d62232" />
+        <!-- Cog teeth -->
+        <g stroke="#ffffff" stroke-width="11" stroke-linecap="round">
+          <line x1="0" y1="-38" x2="0" y2="38" />
+          <line x1="-38" y1="0" x2="38" y2="0" />
+          <line x1="-27" y1="-27" x2="27" y2="27" />
+          <line x1="-27" y1="27" x2="27" y2="-27" />
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom-Right: Mathematics / Pi (Blue #2997d8) -->
+    <rect x="256" y="256" width="256" height="256" fill="#2997d8" clip-path="url(#bottom-right)" />
+    <!-- Pi Symbol (π) -->
+    <g clip-path="url(#bottom-right)" fill="#ffffff">
+      <path d="M 305 320 C 315 316 335 314 365 314 C 395 314 435 316 450 322 C 456 325 458 333 454 338 C 450 343 442 344 434 341 C 420 336 395 334 375 334 L 375 410 C 375 425 380 435 395 435 C 405 435 412 430 416 422 C 420 415 428 412 435 416 C 442 420 445 428 440 436 C 430 452 414 460 392 460 C 360 460 348 442 348 410 L 348 334 L 332 334 L 332 435 C 332 446 328 454 316 457 C 305 459 295 450 295 440 L 295 335 C 290 335 285 338 280 342 C 273 347 264 345 260 338 C 255 332 258 322 265 317 C 275 310 290 305 305 320 Z" />
+    </g>
+  </g>
+</svg>

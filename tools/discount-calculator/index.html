@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Discount Calculator - Double Coupons, Sales Tax & Savings - Numbora</title>
+  <meta name="description" content="Calculate final sale price after percentage discounts, stacked coupons, sales tax / VAT, and BOGO deals on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../discount-calculator/index.html" class="nav-link active">Calculators</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#calculators">Calculators</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Discount Calculator</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 20px;">
+      <span class="badge badge-calc">Calculator</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Discount Calculator</h1>
+      <p style="color: var(--text-sub);">Calculate final price after multiple discount discounts, stacked coupons, and sales tax.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom: 24px;">
+      <!-- Inputs Card -->
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">Price & Discount Details</h3>
+
+        <div class="input-group">
+          <label class="input-label" for="price">Original Price ($)</label>
+          <input type="number" id="price" class="input-control" placeholder="0.00" step="0.01" />
+        </div>
+
+        <!-- Quick Preset Discount Badges -->
+        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px;">
+          <button class="btn btn-secondary preset-disc-btn" data-disc="10" style="padding: 4px 8px; font-size: 0.75rem;">10% OFF</button>
+          <button class="btn btn-secondary preset-disc-btn" data-disc="20" style="padding: 4px 8px; font-size: 0.75rem;">20% OFF</button>
+          <button class="btn btn-secondary preset-disc-btn" data-disc="25" style="padding: 4px 8px; font-size: 0.75rem;">25% OFF</button>
+          <button class="btn btn-secondary preset-disc-btn" data-disc="30" style="padding: 4px 8px; font-size: 0.75rem;">30% OFF</button>
+          <button class="btn btn-secondary preset-disc-btn" data-disc="50" style="padding: 4px 8px; font-size: 0.75rem;">50% OFF</button>
+          <button class="btn btn-secondary preset-disc-btn" data-disc="70" style="padding: 4px 8px; font-size: 0.75rem;">70% OFF</button>
+        </div>
+
+        <div class="input-group" style="margin-top: 14px;">
+          <label class="input-label" for="discount1">Primary Discount (%)</label>
+          <input type="number" id="discount1" class="input-control" placeholder="0" min="0" max="100" />
+        </div>
+
+        <div class="input-group" style="margin-top: 12px;">
+          <label class="input-label" for="discount2">Extra Coupon / Stacked Discount (%)</label>
+          <input type="number" id="discount2" class="input-control" placeholder="0" min="0" max="100" />
+        </div>
+
+        <div class="input-group" style="margin-top: 12px;">
+          <label class="input-label" for="tax-rate">Sales Tax / VAT (%)</label>
+          <input type="number" id="tax-rate" class="input-control" placeholder="0" min="0" max="40" />
+        </div>
+      </div>
+
+      <!-- Results Card -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="margin-bottom: 16px;">Final Payable Amount</h3>
+
+          <div class="result-box">
+            <div style="font-size: 0.88rem; color: var(--text-sub);">Final Price (Including Tax)</div>
+            <div class="result-val" id="res-final">$0.00</div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Total Savings</div>
+              <div id="res-savings" style="font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-top: 2px;">$0.00 (0%)</div>
+            </div>
+
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Sales Tax Added</div>
+              <div id="res-tax-amt" style="font-size: 1.25rem; font-weight: 800; color: var(--accent-rose); margin-top: 2px;">$0.00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Breakdown Box -->
+        <div id="disc-breakdown-box" style="margin-top: 16px; padding: 12px; background: var(--bg-input); border-radius: var(--radius-md); font-size: 0.85rem; border: 1px solid var(--border-color);">
+          Enter price and discount to see breakdown
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

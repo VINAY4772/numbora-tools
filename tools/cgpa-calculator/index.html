@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>CGPA Calculator - Academic Performance & Class Awarded - Numbora</title>
+  <meta name="description" content="Calculate weighted Cumulative Grade Point Average (CGPA), credit points, percentage, target CGPA planner, and official Class Awarded on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Fullscreen Celebration Confetti Canvas -->
+  <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; display: none;"></canvas>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../cgpa-calculator/index.html" class="nav-link active">Calculators</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#calculators">Calculators</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">CGPA Calculator</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge-calc">Calculator</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">CGPA Calculator</h1>
+      <p style="color: var(--text-sub);">Compute your weighted Cumulative Grade Point Average, percentage, target planner, and official Class Awarded.</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- Input Courses Table -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 style="font-size: 1.1rem; margin: 0;">Course & Credit Entry</h3>
+          <div style="display: flex; gap: 6px;">
+            <button id="btn-scale-10" class="btn btn-primary" style="padding: 4px 10px; font-size: 0.75rem;">10-Pt Scale</button>
+            <button id="btn-scale-4" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;">4.0 US Scale</button>
+          </div>
+        </div>
+
+        <!-- Column Headers -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 2fr 40px; gap: 8px; margin-bottom: 8px; font-weight: 700; font-size: 0.8rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.5px;">
+          <div>Subject</div>
+          <div>Credits</div>
+          <div>Grade</div>
+          <div></div>
+        </div>
+
+        <div id="subjects-container">
+          <!-- Row 1 -->
+          <div class="subject-row" style="display: grid; grid-template-columns: 2fr 1fr 2fr 40px; gap: 8px; align-items: center; margin-bottom: 10px;">
+            <input type="text" class="input-control subj-name" value="Subject 1" />
+            <input type="number" class="input-control subj-credits" placeholder="0" min="0" max="10" placeholder="Credits" />
+            <select class="input-control subj-grade">
+              <option value="10" selected>S (Superior) - 10 Pts</option>
+              <option value="9">A (Excellent) - 9 Pts</option>
+              <option value="8">B (Very Good) - 8 Pts</option>
+              <option value="7">C (Good) - 7 Pts</option>
+              <option value="6">D (Average) - 6 Pts</option>
+              <option value="5">E (Pass) - 5 Pts</option>
+              <option value="0-F">F (Fail) - 0 Pts</option>
+            </select>
+            <button class="btn-danger remove-btn" style="padding: 8px; border-radius: var(--radius-md); cursor: pointer;">✕</button>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="subject-row" style="display: grid; grid-template-columns: 2fr 1fr 2fr 40px; gap: 8px; align-items: center; margin-bottom: 10px;">
+            <input type="text" class="input-control subj-name" value="Subject 2" />
+            <input type="number" class="input-control subj-credits" placeholder="0" min="0" max="10" placeholder="Credits" />
+            <select class="input-control subj-grade">
+              <option value="10">S (Superior) - 10 Pts</option>
+              <option value="9" selected>A (Excellent) - 9 Pts</option>
+              <option value="8">B (Very Good) - 8 Pts</option>
+              <option value="7">C (Good) - 7 Pts</option>
+              <option value="6">D (Average) - 6 Pts</option>
+              <option value="5">E (Pass) - 5 Pts</option>
+              <option value="0-F">F (Fail) - 0 Pts</option>
+            </select>
+            <button class="btn-danger remove-btn" style="padding: 8px; border-radius: var(--radius-md); cursor: pointer;">✕</button>
+          </div>
+        </div>
+
+        <button class="btn btn-secondary" id="add-subject-btn" style="width: 100%; margin-top: 12px;">+ Add Subject</button>
+
+        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+          <label class="input-label" for="multiplier">Percentage Multiplier (e.g. 9.5 for CBSE / Indian Universities)</label>
+          <input type="number" id="multiplier" class="input-control" value="9.5" step="0.1" />
+        </div>
+
+        <!-- Target CGPA Planner Section -->
+        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+          <h4 style="font-size: 0.95rem; margin-bottom: 10px; color: var(--primary);">🎯 Target CGPA Planner</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="input-group">
+              <label class="input-label" for="target-cgpa-goal" style="font-size: 0.75rem;">Goal Target CGPA</label>
+              <input type="number" id="target-cgpa-goal" class="input-control" value="9.0" step="0.1" />
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="remaining-credits" style="font-size: 0.75rem;">Remaining Credits</label>
+              <input type="number" id="remaining-credits" class="input-control" value="20" />
+            </div>
+          </div>
+          <div id="target-planner-result" style="margin-top: 10px; padding: 10px; background: var(--bg-input); border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-color);">
+            Required GPA in remaining credits: <span id="req-gpa-val" style="color: var(--primary);">8.80</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Card & Reference Tables -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="card">
+          <h3 style="margin-bottom: 16px;">Overall CGPA Result</h3>
+          <div class="result-box">
+            <div style="font-size: 0.88rem; color: var(--text-sub);">Weighted CGPA</div>
+            <div class="result-val" id="res-cgpa">0.00</div>
+            <div id="res-class" style="display: inline-block; margin-top: 6px; padding: 6px 16px; border-radius: var(--radius-full); font-weight: 800; font-size: 0.95rem; color: var(--primary); background: rgba(5, 150, 105, 0.12);">
+              Enter course credits & grades
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background: var(--bg-input); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Equivalent Percentage</div>
+              <div id="res-pct" style="font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-top: 4px;">0.00%</div>
+            </div>
+            <div style="background: var(--bg-input); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Total Course Credits</div>
+              <div id="res-credits" style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-top: 4px;">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Official Class Awarded Reference Card -->
+        <div class="card" style="border: 1px solid rgba(16, 185, 129, 0.3); background: var(--bg-surface);">
+          <h3 style="margin-bottom: 12px; color: var(--primary); text-align: center; font-size: 1.1rem;">
+            Class Awarded vs CGPA Secured
+          </h3>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: 0.88rem;">
+              <thead>
+                <tr style="background: rgba(16, 185, 129, 0.12); color: var(--primary); border-bottom: 2px solid var(--border-highlight);">
+                  <th style="padding: 10px; border: 1px solid var(--border-color);">Class Awarded</th>
+                  <th style="padding: 10px; border: 1px solid var(--border-color);">CGPA Secured</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 800; color: #059669;">First Class with Distinction 🏆</td>
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 800;">≥ 7.5</td>
+                </tr>
+                <tr style="background: rgba(0,0,0,0.02);">
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 700; color: #10b981;">First Class ⭐</td>
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 700;">≥ 6.5 and &lt; 7.5</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 700; color: #0284c7;">Second Class 👍</td>
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 700;">≥ 5.5 and &lt; 6.5</td>
+                </tr>
+                <tr style="background: rgba(0,0,0,0.02);">
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 700; color: #d97706;">Pass Class ✅</td>
+                  <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 700;">≥ 5.0 and &lt; 5.5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Percentage Calculator - Free Multi-Mode % Calculator - Numbora</title>
+  <meta name="description" content="Free comprehensive percentage calculator: compute X% of Y, percentage increase/decrease, reverse percentages, and percentage share on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../percentage-calculator/index.html" class="nav-link active">Calculators</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#calculators">Calculators</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Percentage Calculator</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge-calc">Calculator</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Percentage Calculator</h1>
+      <p style="color: var(--text-sub);">Perform 5 essential percentage calculations with step-by-step mathematical explanations.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(0px, 1fr)); gap: 16px;">
+      <!-- Mode 1: What is X% of Y? -->
+      <div class="card">
+        <h3 style="margin-bottom: 14px; font-size: 1.1rem;">1. What is X% of Y?</h3>
+        <div class="input-group">
+          <label class="input-label" for="p1-val1">Percentage (X %)</label>
+          <input type="number" id="p1-val1" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div class="input-group" style="margin-top: 10px;">
+          <label class="input-label" for="p1-val2">Of Number (Y)</label>
+          <input type="number" id="p1-val2" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div style="margin-top: 14px; padding: 14px; background: var(--bg-input); border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-color);">
+          <div style="font-size: 0.75rem; color: var(--text-muted);" id="p1-formula">Formula: (X × Y) ÷ 100</div>
+          <div id="p1-res" style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 2px;">0</div>
+        </div>
+      </div>
+
+      <!-- Mode 2: X is what % of Y? -->
+      <div class="card">
+        <h3 style="margin-bottom: 14px; font-size: 1.1rem;">2. X is what % of Y?</h3>
+        <div class="input-group">
+          <label class="input-label" for="p2-val1">Part Value (X)</label>
+          <input type="number" id="p2-val1" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div class="input-group" style="margin-top: 10px;">
+          <label class="input-label" for="p2-val2">Total Value (Y)</label>
+          <input type="number" id="p2-val2" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div style="margin-top: 14px; padding: 14px; background: var(--bg-input); border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-color);">
+          <div style="font-size: 0.75rem; color: var(--text-muted);" id="p2-formula">Formula: (X ÷ Y) × 100</div>
+          <div id="p2-res" style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 2px;">0%</div>
+        </div>
+      </div>
+
+      <!-- Mode 3: % Increase / Decrease -->
+      <div class="card">
+        <h3 style="margin-bottom: 14px; font-size: 1.1rem;">3. % Increase / Decrease</h3>
+        <div class="input-group">
+          <label class="input-label" for="p3-val1">Initial Value (V1)</label>
+          <input type="number" id="p3-val1" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div class="input-group" style="margin-top: 10px;">
+          <label class="input-label" for="p3-val2">Final Value (V2)</label>
+          <input type="number" id="p3-val2" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div style="margin-top: 14px; padding: 14px; background: var(--bg-input); border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-color);">
+          <div style="font-size: 0.75rem; color: var(--text-muted);" id="p3-formula">Formula: ((V2 - V1) ÷ |V1|) × 100</div>
+          <div id="p3-res" style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 2px;">0%</div>
+        </div>
+      </div>
+
+      <!-- Mode 4: Reverse Percentage (X is Y% of what?) -->
+      <div class="card">
+        <h3 style="margin-bottom: 14px; font-size: 1.1rem;">4. X is Y% of what?</h3>
+        <div class="input-group">
+          <label class="input-label" for="p4-val1">Result Amount (X)</label>
+          <input type="number" id="p4-val1" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div class="input-group" style="margin-top: 10px;">
+          <label class="input-label" for="p4-val2">Percentage (Y %)</label>
+          <input type="number" id="p4-val2" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div style="margin-top: 14px; padding: 14px; background: var(--bg-input); border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-color);">
+          <div style="font-size: 0.75rem; color: var(--text-muted);" id="p4-formula">Formula: (X ÷ Y) × 100</div>
+          <div id="p4-res" style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 2px;">300</div>
+        </div>
+      </div>
+
+      <!-- Mode 5: Percentage Difference -->
+      <div class="card">
+        <h3 style="margin-bottom: 14px; font-size: 1.1rem;">5. % Difference Between Two Values</h3>
+        <div class="input-group">
+          <label class="input-label" for="p5-val1">Value 1 (A)</label>
+          <input type="number" id="p5-val1" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div class="input-group" style="margin-top: 10px;">
+          <label class="input-label" for="p5-val2">Value 2 (B)</label>
+          <input type="number" id="p5-val2" class="input-control" placeholder="0" step="any" />
+        </div>
+        <div style="margin-top: 14px; padding: 14px; background: var(--bg-input); border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-color);">
+          <div style="font-size: 0.75rem; color: var(--text-muted);" id="p5-formula">Formula: |A - B| ÷ ((A + B) / 2) × 100</div>
+          <div id="p5-res" style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 2px;">0%</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

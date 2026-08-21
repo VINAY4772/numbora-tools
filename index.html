@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Smart Calculators - Numbora Free Financial & Utility Tools</title>
+  <meta name="description" content="Calculate Age, Percentage, CGPA, Salary, Discount, GST, BMI, Fractions, Scientific Math, Date Difference, Time Duration, Countdown, Units, Temperature, Data Storage, Words, Characters, Text Case, Image Resizing, QR Codes and more with fast, accurate and completely free calculators on Numbora. Count on Everything." />
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="#calculators" class="nav-link">Calculators</a></li>
+        <li><a href="#date-time" class="nav-link">Date & Time</a></li>
+        <li><a href="#converters" class="nav-link">Converters</a></li>
+        <li><a href="#text-tools" class="nav-link">Text Tools</a></li>
+        <li><a href="#image-tools" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Numbora Hero Section -->
+    <section class="hero-section container">
+      <div class="hero-grid">
+        <!-- Hero Left Text Content -->
+        <div>
+          <div class="hero-badge">✨ Numbora • Count on Everything</div>
+          <h1 class="hero-headline">
+            Smart <span class="text-green">Calculators</span>
+          </h1>
+          <p class="hero-subtitle">
+            Calculate Age, Percentage, CGPA, Salary, Discount, GST, BMI, Fractions, Scientific Math, Date Difference, Time Duration, Countdown, Units, Temperature, Data Storage, Words, Characters, Text Case, Image Resizing, QR Codes and more with fast, accurate and completely free calculators.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#calculators" class="btn btn-primary btn-pill">🔍 Browse Calculators</a>
+            <a href="#popular-tools" class="btn btn-secondary btn-pill">Quick Tools →</a>
+          </div>
+
+          <!-- Popular Searches Pill Chips Bar (All 20 Tools) -->
+          <div style="margin-top: 24px;">
+            <div class="popular-searches-title">Popular Searches</div>
+            <div class="popular-pills-container">
+              <a href="tools/age-calculator/index.html" class="pill-chip">Age</a>
+              <a href="tools/percentage-calculator/index.html" class="pill-chip">Percentage</a>
+              <a href="tools/cgpa-calculator/index.html" class="pill-chip">CGPA</a>
+              <a href="tools/salary-calculator/index.html" class="pill-chip">Salary</a>
+              <a href="tools/discount-calculator/index.html" class="pill-chip">Discount</a>
+              <a href="tools/gst-calculator/index.html" class="pill-chip">GST</a>
+              <a href="tools/bmi-calculator/index.html" class="pill-chip">BMI</a>
+              <a href="tools/fraction-calculator/index.html" class="pill-chip">Fraction</a>
+              <a href="tools/scientific-calculator/index.html" class="pill-chip">Scientific</a>
+              <a href="tools/date-difference/index.html" class="pill-chip">Date Diff</a>
+              <a href="tools/time-duration/index.html" class="pill-chip">Time Duration</a>
+              <a href="tools/countdown-timer/index.html" class="pill-chip">Countdown</a>
+              <a href="tools/unit-converter/index.html" class="pill-chip">Unit Conv</a>
+              <a href="tools/temperature-converter/index.html" class="pill-chip">Temperature</a>
+              <a href="tools/data-storage-converter/index.html" class="pill-chip">Data Storage</a>
+              <a href="tools/word-counter/index.html" class="pill-chip">Word Counter</a>
+              <a href="tools/character-counter/index.html" class="pill-chip">Char Counter</a>
+              <a href="tools/case-converter/index.html" class="pill-chip">Case Conv</a>
+              <a href="tools/image-resizer/index.html" class="pill-chip">Image Resizer</a>
+              <a href="tools/qr-generator/index.html" class="pill-chip">QR Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Floating Graphic Card Auto-Slideshow (Changes Smoothly Every 3.5s) -->
+        <div class="hero-graphic-slider">
+          <!-- Slide 1: EMI Calculator Statement -->
+          <div class="hero-slide-item active">
+            <div class="hero-preview-card">
+              <div class="preview-header">
+                <div>
+                  <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">LOAN STATEMENT</div>
+                  <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">EMI Calculator</div>
+                </div>
+                <span class="preview-verified-badge">✓ VERIFIED</span>
+              </div>
+
+              <div class="preview-val-box">
+                <div style="font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; font-weight: 700;">MONTHLY EMI</div>
+                <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--primary);">₹21,756</div>
+              </div>
+
+              <div class="chart-columns">
+                <div class="chart-bar" style="height: 35%;"></div>
+                <div class="chart-bar" style="height: 48%;"></div>
+                <div class="chart-bar" style="height: 65%;"></div>
+                <div class="chart-bar" style="height: 82%;"></div>
+                <div class="chart-bar" style="height: 95%;"></div>
+                <div class="chart-bar" style="height: 78%;"></div>
+                <div class="chart-bar" style="height: 88%;"></div>
+                <div class="chart-bar" style="height: 100%;"></div>
+              </div>
+
+              <div class="chart-legend">
+                <span><span class="legend-dot" style="background: var(--primary);"></span> Principal</span>
+                <span><span class="legend-dot" style="background: var(--accent-emerald);"></span> Interest</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; padding-top: 12px; border-top: 1px dashed var(--border-color);">
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Loan Amount</span><span style="font-weight: 700;">₹25,00,000</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Total Interest</span><span style="font-weight: 700; color: var(--primary);">₹27,21,440</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Total Payment</span><span style="font-weight: 800; color: var(--text-main);">₹52,21,440</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Age Calculator Statement -->
+          <div class="hero-slide-item">
+            <div class="hero-preview-card">
+              <div class="preview-header">
+                <div>
+                  <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">AGE SUMMARY</div>
+                  <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">Age Calculator</div>
+                </div>
+                <span class="preview-verified-badge">✓ EXACT</span>
+              </div>
+
+              <div class="preview-val-box">
+                <div style="font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; font-weight: 700;">YOUR EXACT AGE</div>
+                <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--primary);">24 Yrs 7 Mos</div>
+              </div>
+
+              <div class="chart-columns">
+                <div class="chart-bar" style="height: 90%;"></div>
+                <div class="chart-bar" style="height: 70%;"></div>
+                <div class="chart-bar" style="height: 85%;"></div>
+                <div class="chart-bar" style="height: 60%;"></div>
+                <div class="chart-bar" style="height: 100%;"></div>
+                <div class="chart-bar" style="height: 75%;"></div>
+                <div class="chart-bar" style="height: 95%;"></div>
+                <div class="chart-bar" style="height: 80%;"></div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; padding-top: 12px; border-top: 1px dashed var(--border-color);">
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Total Days Lived</span><span style="font-weight: 700;">8,985 Days</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Total Weeks</span><span style="font-weight: 700; color: var(--primary);">1,283 Weeks</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Next Birthday</span><span style="font-weight: 800; color: var(--text-main);">147 Days Left 🎉</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Percentage Calculator Statement -->
+          <div class="hero-slide-item">
+            <div class="hero-preview-card">
+              <div class="preview-header">
+                <div>
+                  <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">RATIO ANALYSIS</div>
+                  <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">Percentage Calculator</div>
+                </div>
+                <span class="preview-verified-badge">✓ ACCURATE</span>
+              </div>
+
+              <div class="preview-val-box">
+                <div style="font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; font-weight: 700;">15% OF 250</div>
+                <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--primary);">37.5</div>
+              </div>
+
+              <div class="chart-columns">
+                <div class="chart-bar" style="height: 40%;"></div>
+                <div class="chart-bar" style="height: 55%;"></div>
+                <div class="chart-bar" style="height: 70%;"></div>
+                <div class="chart-bar" style="height: 85%;"></div>
+                <div class="chart-bar" style="height: 100%;"></div>
+                <div class="chart-bar" style="height: 90%;"></div>
+                <div class="chart-bar" style="height: 65%;"></div>
+                <div class="chart-bar" style="height: 75%;"></div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; padding-top: 12px; border-top: 1px dashed var(--border-color);">
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Mode 1 (15% of 250)</span><span style="font-weight: 700;">37.5</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Mode 2 (45 of 180)</span><span style="font-weight: 700; color: var(--primary);">25.00%</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Mode 3 (% Increase)</span><span style="font-weight: 800; color: var(--text-main);">+40.00%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: CGPA Calculator Statement -->
+          <div class="hero-slide-item">
+            <div class="hero-preview-card">
+              <div class="preview-header">
+                <div>
+                  <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">ACADEMIC REPORT</div>
+                  <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">CGPA Calculator</div>
+                </div>
+                <span class="preview-verified-badge">✓ WEIGHTED</span>
+              </div>
+
+              <div class="preview-val-box">
+                <div style="font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; font-weight: 700;">WEIGHTED CGPA</div>
+                <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--primary);">9.57</div>
+              </div>
+
+              <div class="chart-columns">
+                <div class="chart-bar" style="height: 100%;"></div>
+                <div class="chart-bar" style="height: 90%;"></div>
+                <div class="chart-bar" style="height: 95%;"></div>
+                <div class="chart-bar" style="height: 85%;"></div>
+                <div class="chart-bar" style="height: 100%;"></div>
+                <div class="chart-bar" style="height: 92%;"></div>
+                <div class="chart-bar" style="height: 88%;"></div>
+                <div class="chart-bar" style="height: 96%;"></div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; padding-top: 12px; border-top: 1px dashed var(--border-color);">
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Total Course Credits</span><span style="font-weight: 700;">7 Credits</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Equivalent Percentage</span><span style="font-weight: 700; color: var(--primary);">90.92%</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Top Grade Point</span><span style="font-weight: 800; color: var(--text-main);">O (10)</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: GST Calculator Statement -->
+          <div class="hero-slide-item">
+            <div class="hero-preview-card">
+              <div class="preview-header">
+                <div>
+                  <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">TAX INVOICE</div>
+                  <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">GST Calculator</div>
+                </div>
+                <span class="preview-verified-badge">✓ TAX SPLIT</span>
+              </div>
+
+              <div class="preview-val-box">
+                <div style="font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; font-weight: 700;">TOTAL GROSS AMOUNT</div>
+                <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--primary);">₹11,800</div>
+              </div>
+
+              <div class="chart-columns">
+                <div class="chart-bar" style="height: 60%;"></div>
+                <div class="chart-bar" style="height: 75%;"></div>
+                <div class="chart-bar" style="height: 85%;"></div>
+                <div class="chart-bar" style="height: 100%;"></div>
+                <div class="chart-bar" style="height: 90%;"></div>
+                <div class="chart-bar" style="height: 80%;"></div>
+                <div class="chart-bar" style="height: 95%;"></div>
+                <div class="chart-bar" style="height: 100%;"></div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; padding-top: 12px; border-top: 1px dashed var(--border-color);">
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Net Price (Excl. Tax)</span><span style="font-weight: 700;">₹10,000</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">GST Tax Rate</span><span style="font-weight: 700; color: var(--primary);">18% Standard</span></div>
+                <div style="display: flex; justify-content: space-between;"><span style="color: var(--text-muted);">Calculated GST Tax</span><span style="font-weight: 800; color: var(--text-main);">₹1,800</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instant Search Bar -->
+    <section class="container" style="margin-bottom: 40px;">
+      <div style="max-width: 580px; margin: 0 auto;">
+        <input type="text" id="tool-search" class="input-control" placeholder="Search calculators (e.g. Age, Percentage, CGPA, Unit, Resizer)..." style="font-size: 1.05rem; padding: 14px 22px; border-radius: var(--radius-full); box-shadow: var(--shadow-md); border-color: var(--border-highlight);" />
+      </div>
+    </section>
+
+    <!-- Popular Tools Section -->
+    <section class="container" id="popular-tools" style="margin-bottom: 48px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+        <h2 style="font-size: 1.5rem; color: var(--text-main);">🔥 Popular Calculators</h2>
+      </div>
+
+      <div class="grid-4">
+        <!-- Popular Card 1: Age Calculator -->
+        <a href="tools/age-calculator/index.html" class="card card-hover tool-card" data-keywords="age birthday birth dob years old date born lifespan next birthday">
+          <div class="popular-card-img-wrap">🎂</div>
+          <div>
+            <span class="badge badge-calc" style="margin-bottom: 8px;">Calculator</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Age Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub);">Calculate exact age in years, months, days, and birthday countdown.</p>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-top: 14px; display: inline-block;">Open Tool →</span>
+        </a>
+
+        <!-- Popular Card 2: Percentage Calculator -->
+        <a href="tools/percentage-calculator/index.html" class="card card-hover tool-card" data-keywords="percentage percent % ratio increase decrease fraction portion marks">
+          <div class="popular-card-img-wrap">📊</div>
+          <div>
+            <span class="badge badge-calc" style="margin-bottom: 8px;">Calculator</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Percentage Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub);">Calculate X% of Y, percentage increase or decrease instantly.</p>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-top: 14px; display: inline-block;">Open Tool →</span>
+        </a>
+
+        <!-- Popular Card 3: CGPA Calculator -->
+        <a href="tools/cgpa-calculator/index.html" class="card card-hover tool-card" data-keywords="cgpa gpa grade college university marks score sgpa credits academic">
+          <div class="popular-card-img-wrap">🎓</div>
+          <div>
+            <span class="badge badge-calc" style="margin-bottom: 8px;">Calculator</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 4px;">CGPA Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub);">Compute weighted CGPA and equivalent percentage estimate.</p>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-top: 14px; display: inline-block;">Open Tool →</span>
+        </a>
+
+        <!-- Popular Card 4: Unit Converter -->
+        <a href="tools/unit-converter/index.html" class="card card-hover tool-card" data-keywords="unit convert length weight area volume speed energy meter kg miles feet">
+          <div class="popular-card-img-wrap">📏</div>
+          <div>
+            <span class="badge badge-conv" style="margin-bottom: 8px;">Converter</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Unit Converter</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub);">Convert Length, Weight, Area, Volume, Speed, and Energy units.</p>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 700; margin-top: 14px; display: inline-block;">Open Tool →</span>
+        </a>
+
+        <!-- Popular Card 5: Scientific Calculator -->
+        <a href="tools/scientific-calculator/index.html" class="card card-hover tool-card" data-keywords="scientific calc math sin cos tan log ln sqrt pi power square root trigonometry">
+          <div class="popular-card-img-wrap">🧪</div>
+          <div>
+            <span class="badge badge-calc" style="margin-bottom: 8px;">Calculator</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Scientific Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub);">Trigonometric, logarithmic, powers, and roots calculator.</p>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-top: 14px; display: inline-block;">Open Tool →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Tool Categories Section -->
+    <section class="container" style="margin-bottom: 48px;">
+      <!-- Category 1: Calculators -->
+      <div id="calculators" style="margin-bottom: 40px;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+          🧮 Calculators
+        </h2>
+        <div class="grid-4">
+          <a href="tools/age-calculator/index.html" class="card card-hover tool-card" data-keywords="age birthday birth dob years old date born lifespan next birthday">
+            <div class="tool-card-img-wrap">🎂</div>
+            <h3 style="font-size: 1.05rem;">Age Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Calculate exact age and birthday countdown.</p>
+          </a>
+          <a href="tools/percentage-calculator/index.html" class="card card-hover tool-card" data-keywords="percentage percent % ratio increase decrease fraction portion marks">
+            <div class="tool-card-img-wrap">📊</div>
+            <h3 style="font-size: 1.05rem;">Percentage Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Calculate ratios and percentage changes.</p>
+          </a>
+          <a href="tools/cgpa-calculator/index.html" class="card card-hover tool-card" data-keywords="cgpa gpa grade college university marks score sgpa credits academic">
+            <div class="tool-card-img-wrap">🎓</div>
+            <h3 style="font-size: 1.05rem;">CGPA Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Calculate college CGPA and % equivalent.</p>
+          </a>
+          <a href="tools/salary-calculator/index.html" class="card card-hover tool-card" data-keywords="salary pay income ctc take home in hand monthly gross net tax wage compensation emi loan">
+            <div class="tool-card-img-wrap">💵</div>
+            <h3 style="font-size: 1.05rem;">Salary Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Estimate monthly in-hand take-home pay.</p>
+          </a>
+          <a href="tools/discount-calculator/index.html" class="card card-hover tool-card" data-keywords="discount sale offer savings coupon shop price deal markdown">
+            <div class="tool-card-img-wrap">🏷️</div>
+            <h3 style="font-size: 1.05rem;">Discount Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Calculate sale price & savings.</p>
+          </a>
+          <a href="tools/gst-calculator/index.html" class="card card-hover tool-card" data-keywords="gst tax vat inclusive exclusive invoice bill tax rate gross net emi loan">
+            <div class="tool-card-img-wrap">🧾</div>
+            <h3 style="font-size: 1.05rem;">GST Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Inclusive and exclusive GST tax splits.</p>
+          </a>
+          <a href="tools/bmi-calculator/index.html" class="card card-hover tool-card" data-keywords="bmi body mass index weight height health fitness kg lbs cm feet obese underweight">
+            <div class="tool-card-img-wrap">⚖️</div>
+            <h3 style="font-size: 1.05rem;">BMI Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Calculate Body Mass Index & health range.</p>
+          </a>
+          <a href="tools/fraction-calculator/index.html" class="card card-hover tool-card" data-keywords="fraction math numerator denominator divide multiply ratio fraction add">
+            <div class="tool-card-img-wrap">➗</div>
+            <h3 style="font-size: 1.05rem;">Fraction Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Add, subtract, multiply, and divide fractions.</p>
+          </a>
+          <a href="tools/scientific-calculator/index.html" class="card card-hover tool-card" data-keywords="scientific calc math sin cos tan log ln sqrt pi power square root trigonometry">
+            <div class="tool-card-img-wrap">🧪</div>
+            <h3 style="font-size: 1.05rem;">Scientific Calculator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Full scientific functions with keyboard input.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 2: Date & Time -->
+      <div id="date-time" style="margin-bottom: 40px;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+          📅 Date & Time Tools
+        </h2>
+        <div class="grid-3">
+          <a href="tools/date-difference/index.html" class="card card-hover tool-card" data-keywords="date duration difference calendar days between elapsed years months">
+            <div class="tool-card-img-wrap">📅</div>
+            <h3 style="font-size: 1.05rem;">Date Difference</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Calculate years, months, and days between dates.</p>
+          </a>
+          <a href="tools/time-duration/index.html" class="card card-hover tool-card" data-keywords="time hours minutes seconds clock elapsed shift duration midnight">
+            <div class="tool-card-img-wrap">⏱️</div>
+            <h3 style="font-size: 1.05rem;">Time Duration</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Calculate hours & minutes between clock times.</p>
+          </a>
+          <a href="tools/countdown-timer/index.html" class="card card-hover tool-card" data-keywords="countdown timer event clock ticking alarm target seconds">
+            <div class="tool-card-img-wrap">⏳</div>
+            <h3 style="font-size: 1.05rem;">Countdown Timer</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Live event timer updating every second.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 3: Converters -->
+      <div id="converters" style="margin-bottom: 40px;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+          🔄 Converters
+        </h2>
+        <div class="grid-3">
+          <a href="tools/unit-converter/index.html" class="card card-hover tool-card" data-keywords="unit convert length weight area volume speed energy meter kg miles feet">
+            <div class="tool-card-img-wrap">📏</div>
+            <h3 style="font-size: 1.05rem;">Unit Converter</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Multi-category unit measurement converter.</p>
+          </a>
+          <a href="tools/temperature-converter/index.html" class="card card-hover tool-card" data-keywords="temperature temp celsius fahrenheit kelvin heat degree weather">
+            <div class="tool-card-img-wrap">🌡️</div>
+            <h3 style="font-size: 1.05rem;">Temperature Converter</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Convert Celsius, Fahrenheit, and Kelvin.</p>
+          </a>
+          <a href="tools/data-storage-converter/index.html" class="card card-hover tool-card" data-keywords="data storage memory byte kb mb gb tb kib mib gib bit disk">
+            <div class="tool-card-img-wrap">💾</div>
+            <h3 style="font-size: 1.05rem;">Data Storage Converter</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Convert decimal (KB, MB) and binary (KiB, MiB) memory.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 4: Text Tools -->
+      <div id="text-tools" style="margin-bottom: 40px;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+          📝 Text Tools
+        </h2>
+        <div class="grid-3">
+          <a href="tools/word-counter/index.html" class="card card-hover tool-card" data-keywords="word text count reading time sentences paragraphs essay article">
+            <div class="tool-card-img-wrap">📝</div>
+            <h3 style="font-size: 1.05rem;">Word Counter</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Count words, sentences, and reading time.</p>
+          </a>
+          <a href="tools/character-counter/index.html" class="card card-hover tool-card" data-keywords="character char count letters digits numbers spaces symbols">
+            <div class="tool-card-img-wrap">🔤</div>
+            <h3 style="font-size: 1.05rem;">Character Counter</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Analyze letters, numbers, spaces, and symbols.</p>
+          </a>
+          <a href="tools/case-converter/index.html" class="card card-hover tool-card" data-keywords="case uppercase lowercase title case sentence case camelcase pascalcase snakecase kebabcase constantcase dotcase pathcase slug font">
+            <div class="tool-card-img-wrap">🔠</div>
+            <h3 style="font-size: 1.05rem;">Case Converter</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Convert UPPERCASE, lowercase, Title, camelCase, snake_case & 15+ formats.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 5: Image & Utility Tools -->
+      <div id="image-tools">
+        <h2 style="font-size: 1.5rem; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+          🖼️ Image & Utility Tools
+        </h2>
+        <div class="grid-2">
+          <a href="tools/image-resizer/index.html" class="card card-hover tool-card" data-keywords="image photo picture resize png jpg jpeg webp dimensions scale">
+            <div class="tool-card-img-wrap">🖼️</div>
+            <h3 style="font-size: 1.05rem;">Image Resizer</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Resize PNG, JPG, and WebP images client-side.</p>
+          </a>
+          <a href="tools/qr-generator/index.html" class="card card-hover tool-card" data-keywords="qr qrcode generator barcode scan url link wifi mobile code">
+            <div class="tool-card-img-wrap">📲</div>
+            <h3 style="font-size: 1.05rem;">QR Code Generator</h3>
+            <p style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;">Generate custom QR codes with PNG download.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <img src="assets/images/logo-icon.png" alt="Numbora Emblem" style="width: 34px; height: 34px; object-fit: contain;" />
+          <div>
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 1.25rem; line-height: 1.1;">Num<span style="color: var(--accent-emerald);">bora</span></h4>
+            <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;">Count on Everything</span>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">
+          Fast, accurate, and 100% free online calculators, unit converters, and productivity tools.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#calculators">Calculators</a></li>
+          <li><a href="#date-time">Date & Time</a></li>
+          <li><a href="#converters">Converters</a></li>
+          <li><a href="#text-tools">Text Tools</a></li>
+          <li><a href="#image-tools">Image Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      © 2026 Numbora. Fast & private web tools.
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/utilities.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Data Storage Converter - KB, MB, GB, TB & KiB, MiB, GiB - Numbora</title>
+  <meta name="description" content="Convert digital storage units between Decimal base-1000 (KB, MB, GB) and Binary base-1024 (KiB, MiB, GiB) values on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../data-storage-converter/index.html" class="nav-link active">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#converters">Converters</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Data Storage Converter</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge-conv">Converter</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Data Storage Converter</h1>
+      <p style="color: var(--text-sub);">Convert between Decimal (base-1000) and Binary (base-1024) memory units.</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- Input Card -->
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">Source Data Input</h3>
+
+        <div class="input-group">
+          <label class="input-label" for="data-val">Storage Amount</label>
+          <input type="number" id="data-val" class="input-control" placeholder="0" step="any" />
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="data-unit">Source Unit</label>
+          <select id="data-unit" class="input-control">
+            <option value="bit">Bit (b)</option>
+            <option value="byte">Byte (B)</option>
+            <option value="kb">Kilobyte (KB - 1000 B)</option>
+            <option value="mb" selected>Megabyte (MB - 1000 KB)</option>
+            <option value="gb">Gigabyte (GB - 1000 MB)</option>
+            <option value="tb">Terabyte (TB - 1000 GB)</option>
+            <option value="kib">Kibibyte (KiB - 1024 B)</option>
+            <option value="mib">Mebibyte (MiB - 1024 KiB)</option>
+            <option value="gib">Gibibyte (GiB - 1024 MiB)</option>
+            <option value="tib">Tebibyte (TiB - 1024 GiB)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Comparison Grid Card -->
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">All Equivalent Storage Values</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;" id="storage-results-grid"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

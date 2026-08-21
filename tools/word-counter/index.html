@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Word Counter - Count Words, Sentences & Reading Time</title>
+  <meta name="description" content="Free online word counter tool. Count words, characters, sentences, paragraphs, and reading time in real-time." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link active">Text Tools</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#text-tools">Text Tools</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Word Counter</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge-text">Text Tool</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Word Counter</h1>
+      <p style="color: var(--text-sub);">Real-time word, character, sentence, and reading time counter.</p>
+    </div>
+
+    <!-- Live Counter Cards Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+      <div class="card" style="padding: 12px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Words</div>
+        <div id="cnt-words" style="font-size: 1.6rem; font-weight: 800; color: var(--primary);">0</div>
+      </div>
+      <div class="card" style="padding: 12px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Characters</div>
+        <div id="cnt-chars" style="font-size: 1.6rem; font-weight: 800; color: var(--text-main);">0</div>
+      </div>
+      <div class="card" style="padding: 12px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Chars (No Spaces)</div>
+        <div id="cnt-chars-nospace" style="font-size: 1.6rem; font-weight: 800; color: var(--text-main);">0</div>
+      </div>
+      <div class="card" style="padding: 12px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Sentences</div>
+        <div id="cnt-sentences" style="font-size: 1.6rem; font-weight: 800; color: var(--accent-cyan);">0</div>
+      </div>
+      <div class="card" style="padding: 12px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Paragraphs</div>
+        <div id="cnt-paragraphs" style="font-size: 1.6rem; font-weight: 800; color: var(--text-main);">0</div>
+      </div>
+      <div class="card" style="padding: 12px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Reading Time</div>
+        <div id="cnt-readtime" style="font-size: 1.2rem; font-weight: 800; color: var(--primary);">0 min</div>
+      </div>
+    </div>
+
+    <!-- Text Input Area -->
+    <div class="card">
+      <textarea id="text-input" class="input-control" rows="12" placeholder="Type or paste your text here..." style="font-family: inherit; font-size: 1rem; line-height: 1.6; padding: 16px;"></textarea>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Time Duration Calculator - Elapsed Hours & Minutes - Numbora</title>
+  <meta name="description" content="Calculate elapsed hours, minutes, and seconds between two clock times with midnight crossover support on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../time-duration/index.html" class="nav-link active">Date & Time</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#date-time">Date & Time</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Time Duration</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge-time">Date & Time</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Time Duration Calculator</h1>
+      <p style="color: var(--text-sub);">Calculate elapsed hours, minutes, and seconds between start and end clock times.</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- Inputs -->
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">Clock Times</h3>
+
+        <div class="input-group">
+          <label class="input-label" for="start-time">Start Time</label>
+          <input type="time" id="start-time" class="input-control" step="1" />
+        </div>
+
+        <div class="input-group" style="margin-top: 16px;">
+          <label class="input-label" for="end-time">End Time</label>
+          <input type="time" id="end-time" class="input-control" step="1" />
+        </div>
+
+        <div style="margin-top: 20px; display: flex; gap: 8px;">
+          <button id="btn-now" class="btn btn-secondary" style="flex: 1; font-size: 0.82rem;">⏱️ Set to Current Time</button>
+          <button id="btn-clear-time" class="btn btn-danger" style="padding: 8px 16px; font-size: 0.82rem;">Clear</button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="margin-bottom: 16px;">Duration Result</h3>
+
+          <div class="result-box">
+            <div style="font-size: 0.88rem; color: var(--text-sub);">Elapsed Duration</div>
+            <div class="result-val">
+              <span id="dur-hours">0</span> hrs <span id="dur-mins">0</span> mins <span id="dur-secs">0</span> secs
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Total Minutes</div>
+              <div id="tot-mins" style="font-size: 1.2rem; font-weight: 700; color: var(--primary);">0</div>
+            </div>
+
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Total Seconds</div>
+              <div id="tot-secs" style="font-size: 1.2rem; font-weight: 700; color: var(--text-main);">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

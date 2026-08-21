@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Unit Converter - Universal Measurement Unit Converter - Numbora</title>
+  <meta name="description" content="Convert measurements across Length, Weight, Area, Volume, Speed, Energy, Temperature, and Data Storage categories instantly on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+  <style>
+    .unit-tab-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .unit-tab-btn {
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link active">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#converters">Converters</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Unit Converter</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 20px;">
+      <span class="badge badge-conv">Converter</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Unit Converter</h1>
+      <p style="color: var(--text-sub);">Multi-category unit measurement conversion calculator with live comparison grid.</p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="unit-tab-bar" id="unit-tab-bar">
+      <button class="btn btn-primary unit-tab-btn active" data-cat="length">📏 Length</button>
+      <button class="btn btn-secondary unit-tab-btn" data-cat="weight">⚖️ Weight</button>
+      <button class="btn btn-secondary unit-tab-btn" data-cat="area">📐 Area</button>
+      <button class="btn btn-secondary unit-tab-btn" data-cat="volume">🧪 Volume</button>
+      <button class="btn btn-secondary unit-tab-btn" data-cat="speed">🚗 Speed</button>
+      <button class="btn btn-secondary unit-tab-btn" data-cat="energy">⚡ Energy</button>
+      <button class="btn btn-secondary unit-tab-btn" data-cat="temperature">🌡️ Temperature</button>
+      <button class="btn btn-secondary unit-tab-btn" data-cat="data">💾 Data Storage</button>
+    </div>
+
+    <div class="grid-2" style="margin-bottom: 24px;">
+      <!-- Conversion Setup Card -->
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">Conversion Setup</h3>
+
+        <div class="input-group">
+          <label class="input-label" for="category-select">Category</label>
+          <select id="category-select" class="input-control">
+            <option value="length" selected>Length & Distance</option>
+            <option value="weight">Weight & Mass</option>
+            <option value="area">Area</option>
+            <option value="volume">Volume</option>
+            <option value="speed">Speed</option>
+            <option value="energy">Energy</option>
+            <option value="temperature">Temperature</option>
+            <option value="data">Data Storage</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="from-val">Input Amount</label>
+          <input type="number" id="from-val" class="input-control" placeholder="0" step="any" placeholder="Enter amount to convert..." />
+        </div>
+
+        <div class="input-group" style="margin-top: 12px;">
+          <label class="input-label" for="from-unit">From Unit</label>
+          <select id="from-unit" class="input-control" style="width: 100%; display: block;">
+            <option value="meter">Meter (m)</option>
+            <option value="kilometer">Kilometer (km)</option>
+            <option value="centimeter">Centimeter (cm)</option>
+            <option value="millimeter">Millimeter (mm)</option>
+            <option value="mile">Mile (mi)</option>
+            <option value="yard">Yard (yd)</option>
+            <option value="foot">Foot (ft)</option>
+            <option value="inch">Inch (in)</option>
+          </select>
+        </div>
+
+        <div style="margin: 12px 0;">
+          <button id="btn-swap" class="btn btn-secondary" style="width: 100%; font-size: 0.9rem; font-weight: 700; padding: 10px;" title="Swap From and To Units">⇄ Swap Units (From ↔ To)</button>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="to-unit">To Unit</label>
+          <select id="to-unit" class="input-control" style="width: 100%; display: block;">
+            <option value="meter">Meter (m)</option>
+            <option value="kilometer" selected>Kilometer (km)</option>
+            <option value="centimeter">Centimeter (cm)</option>
+            <option value="millimeter">Millimeter (mm)</option>
+            <option value="mile">Mile (mi)</option>
+            <option value="yard">Yard (yd)</option>
+            <option value="foot">Foot (ft)</option>
+            <option value="inch">Inch (in)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Main Result Card -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="margin-bottom: 16px;">Conversion Result</h3>
+
+          <div class="result-box">
+            <div style="font-size: 0.88rem; color: var(--text-sub);">Converted Value</div>
+            <div class="result-val" id="to-val">0.001</div>
+          </div>
+        </div>
+        <div id="unit-formula" style="font-size: 0.88rem; font-weight: 600; color: var(--primary); margin-top: 16px; background: rgba(5, 150, 105, 0.08); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid rgba(5, 150, 105, 0.2);">1 Meter (m) = 0.001000 Kilometer (km)</div>
+      </div>
+    </div>
+
+    <!-- All Equivalent Units Grid Card -->
+    <div class="card">
+      <h3 style="margin-bottom: 16px; font-size: 1.1rem;">📊 All Equivalent Units in Category</h3>
+      <div id="all-units-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+        <!-- Generated dynamically by script.js -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

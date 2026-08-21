@@ -1,0 +1,17 @@
+/* Numbora Responsive Rules (Complementary Mobile Stylesheet) */
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 1.75rem !important;
+  }
+
+  .calc-keypad-btn {
+    min-height: 42px;
+    font-size: 0.85rem !important;
+    padding: 6px 2px !important;
+  }
+
+  #qrcode canvas, #qrcode img {
+    max-width: 200px !important;
+    height: auto !important;
+  }
+}

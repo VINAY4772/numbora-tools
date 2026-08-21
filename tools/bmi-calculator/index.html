@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>BMI & Health Calculator - Body Mass Index, Ideal Weight & BMR - Numbora</title>
+  <meta name="description" content="Calculate Body Mass Index (BMI), ideal healthy weight range, and BMR daily calorie burn with metric and imperial units on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../bmi-calculator/index.html" class="nav-link active">Calculators</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#calculators">Calculators</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">BMI Calculator</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 20px;">
+      <span class="badge badge-calc">Calculator</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">BMI & Health Calculator</h1>
+      <p style="color: var(--text-sub);">Calculate your Body Mass Index (BMI), ideal healthy weight range, and daily calorie needs.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom: 24px;">
+      <!-- Inputs Card -->
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">Body Dimensions</h3>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+          <button id="mode-metric" class="btn btn-primary" style="flex: 1; font-size: 0.85rem;">Metric (cm, kg)</button>
+          <button id="mode-imperial" class="btn btn-secondary" style="flex: 1; font-size: 0.85rem;">Imperial (ft-in, lbs)</button>
+        </div>
+
+        <div id="metric-inputs">
+          <div class="input-group">
+            <label class="input-label" for="height-cm">Height (cm)</label>
+            <input type="number" id="height-cm" class="input-control" placeholder="e.g. 175" min="50" max="250" />
+          </div>
+
+          <div class="input-group" style="margin-top: 12px;">
+            <label class="input-label" for="weight-kg">Weight (kg)</label>
+            <input type="number" id="weight-kg" class="input-control" placeholder="e.g. 70" min="20" max="300" />
+          </div>
+        </div>
+
+        <div id="imperial-inputs" style="display: none;">
+          <div class="input-group">
+            <label class="input-label">Height (Feet & Inches)</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <input type="number" id="height-ft" class="input-control" placeholder="Ft" placeholder="Feet" />
+              <input type="number" id="height-in" class="input-control" placeholder="In" placeholder="Inches" />
+            </div>
+          </div>
+
+          <div class="input-group" style="margin-top: 12px;">
+            <label class="input-label" for="weight-lbs">Weight (lbs)</label>
+            <input type="number" id="weight-lbs" class="input-control" placeholder="Lbs" min="40" max="600" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border-color);">
+          <div class="input-group">
+            <label class="input-label" for="user-age">Age (Years)</label>
+            <input type="number" id="user-age" class="input-control" placeholder="e.g. 25" min="10" max="120" />
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="user-gender">Gender</label>
+            <select id="user-gender" class="input-control">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Card -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="margin-bottom: 16px;">BMI Health Score</h3>
+
+          <div class="result-box">
+            <div style="font-size: 0.88rem; color: var(--text-sub);">Body Mass Index (BMI)</div>
+            <div class="result-val" id="res-bmi">0.0</div>
+            <div id="res-category" style="font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-top: 4px;">
+              Enter height & weight
+            </div>
+          </div>
+
+          <!-- Ideal Weight & Calorie Targets -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px;">
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Ideal Healthy Weight</div>
+              <div id="res-ideal-weight" style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-top: 2px;">0.0 kg</div>
+            </div>
+
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Daily Calories (BMR)</div>
+              <div id="res-bmr" style="font-size: 1.15rem; font-weight: 800; color: var(--accent-cyan); margin-top: 2px;">0 kcal/day</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHO Guidelines Spectrum -->
+        <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 14px;">
+          <div style="font-size: 0.8rem; font-weight: 700; margin-bottom: 6px;">WHO BMI Reference Categories:</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; font-size: 0.72rem; text-align: center;">
+            <div style="background: rgba(2, 132, 199, 0.15); color: #0284c7; padding: 4px; border-radius: 4px;">&lt; 18.5<br/><strong>Underweight</strong></div>
+            <div style="background: rgba(16, 185, 129, 0.15); color: #059669; padding: 4px; border-radius: 4px;">18.5 – 24.9<br/><strong>Normal</strong></div>
+            <div style="background: rgba(217, 119, 6, 0.15); color: #d97706; padding: 4px; border-radius: 4px;">25.0 – 29.9<br/><strong>Overweight</strong></div>
+            <div style="background: rgba(225, 29, 72, 0.15); color: #e11d48; padding: 4px; border-radius: 4px;">≥ 30.0<br/><strong>Obese</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

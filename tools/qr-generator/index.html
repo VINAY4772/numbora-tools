@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>QR Code Generator - Generate Free Scannable QR Codes - Numbora</title>
+  <meta name="description" content="Generate high-resolution 100% scannable custom QR codes for URLs, Plain Text, WiFi Networks, Email, and Phone with PNG & SVG vector download on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+  <style>
+    .preset-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .preset-tab {
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .preset-tab:hover {
+      border-color: var(--border-highlight);
+      color: var(--primary);
+    }
+    .preset-tab.active {
+      background: var(--gradient-primary);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+    }
+    #qrcode canvas, #qrcode img {
+      margin: 0 auto;
+      border-radius: 4px;
+      max-width: 100%;
+      height: auto !important;
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../qr-generator/index.html" class="nav-link active">Image Tools</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#image-tools">Image Tools</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">QR Code Generator</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge-img">Image Tool</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">QR Code Generator</h1>
+      <p style="color: var(--text-sub);">Generate 100% smartphone scannable custom QR codes with PNG & SVG vector export.</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- QR Options & Controls -->
+      <div class="card">
+        <h3 style="margin-bottom: 14px;">Select QR Type</h3>
+
+        <!-- Preset Type Buttons -->
+        <div class="preset-tabs">
+          <button class="preset-tab active" data-preset="url">🌐 Website URL</button>
+          <button class="preset-tab" data-preset="text">📝 Plain Text</button>
+          <button class="preset-tab" data-preset="wifi">📶 WiFi Network</button>
+          <button class="preset-tab" data-preset="email">📧 Email</button>
+          <button class="preset-tab" data-preset="phone">📞 Phone</button>
+        </div>
+
+        <!-- URL / Text Input -->
+        <div class="input-group">
+          <label class="input-label" id="preset-label" for="qr-text">Website URL</label>
+          <input type="text" id="qr-text" class="input-control" value="https://example.com" placeholder="https://example.com" />
+        </div>
+
+        <!-- WiFi Inputs (Hidden by default) -->
+        <div id="wifi-container" style="display: none; margin-bottom: 16px;">
+          <div class="input-group">
+            <label class="input-label" for="wifi-ssid">WiFi Network Name (SSID)</label>
+            <input type="text" id="wifi-ssid" class="input-control" value="Home_WiFi" placeholder="Network Name..." />
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="wifi-pass">WiFi Password</label>
+            <input type="password" id="wifi-pass" class="input-control" value="secret123" placeholder="Password..." />
+          </div>
+        </div>
+
+        <!-- Color Controls -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+          <div class="input-group">
+            <label class="input-label" for="fg-color">QR Color</label>
+            <input type="color" id="fg-color" class="input-control" value="#059669" style="height: 42px; padding: 2px; cursor: pointer;" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="bg-color">Background</label>
+            <input type="color" id="bg-color" class="input-control" value="#ffffff" style="height: 42px; padding: 2px; cursor: pointer;" />
+          </div>
+        </div>
+
+        <!-- Size / Resolution -->
+        <div class="input-group" style="margin-top: 8px;">
+          <label class="input-label" for="qr-size">QR Resolution (px)</label>
+          <select id="qr-size" class="input-control">
+            <option value="256" selected>256 x 256 px (Standard)</option>
+            <option value="512">512 x 512 px (High Res)</option>
+            <option value="1024">1024 x 1024 px (Ultra HD)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Live Scannable Preview & Downloads -->
+      <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+        <div style="width: 100%; text-align: center;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 16px;">
+            <h3 style="margin: 0;">Scannable QR Preview</h3>
+            <span style="font-size: 0.72rem; padding: 2px 8px; border-radius: var(--radius-full); background: rgba(16, 185, 129, 0.12); color: var(--primary); font-weight: 700;">✓ ISO Compliant</span>
+          </div>
+
+          <div style="padding: 20px; background: #ffffff; border-radius: var(--radius-lg); display: inline-block; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
+            <div id="qrcode"></div>
+          </div>
+        </div>
+
+        <!-- Download Buttons Action Bar -->
+        <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 24px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <button id="download-png-btn" class="btn btn-primary">📥 Download PNG</button>
+            <button id="download-svg-btn" class="btn btn-secondary">📐 Download SVG</button>
+          </div>
+          <button id="copy-btn" class="btn btn-secondary" style="width: 100%;">📋 Copy Image to Clipboard</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

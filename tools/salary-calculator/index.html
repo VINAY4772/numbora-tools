@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="../../manifest.json" />
+  <title>Salary Calculator - Take-Home Pay, Taxes & Wage Converter - Numbora</title>
+  <meta name="description" content="Calculate monthly take-home salary, gross pay, overtime wages, and multi-period conversion (hourly, monthly, annual) on Numbora." />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+</head>
+<body>
+  <!-- Header Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="brand-logo" title="Numbora - Count On Everything">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora Logo" class="brand-logo-img" />
+        <span>Num<span class="brand-highlight">bora</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../salary-calculator/index.html" class="nav-link active">Calculators</a></li>
+        <li><a href="../unit-converter/index.html" class="nav-link">Converters</a></li>
+        <li><a href="../word-counter/index.html" class="nav-link">Text Tools</a></li>
+        <li><a href="../image-resizer/index.html" class="nav-link">Image Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex: 1; padding-bottom: 60px;">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="../../index.html#calculators">Calculators</a></li>
+        <li>/</li>
+        <li style="color: var(--text-main);">Salary Calculator</li>
+      </ul>
+    </nav>
+
+    <div style="margin-bottom: 20px;">
+      <span class="badge badge-calc">Calculator</span>
+      <h1 style="font-size: 2rem; margin: 6px 0 4px 0;">Salary Calculator</h1>
+      <p style="color: var(--text-sub);">Calculate net in-hand pay, tax deductions, and wage conversions across all payment periods.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom: 24px;">
+      <!-- Inputs Card -->
+      <div class="card">
+        <h3 style="margin-bottom: 16px;">Compensation Input</h3>
+
+        <div style="display: flex; gap: 8px;">
+          <div class="input-group" style="flex: 2;">
+            <label class="input-label" for="salary-amount">Salary Amount</label>
+            <input type="number" id="salary-amount" class="input-control" placeholder="0.00" step="500" />
+          </div>
+          <div class="input-group" style="flex: 1;">
+            <label class="input-label" for="salary-period">Period</label>
+            <select id="salary-period" class="input-control">
+              <option value="annual" selected>Per Year</option>
+              <option value="monthly">Per Month</option>
+              <option value="biweekly">Bi-Weekly</option>
+              <option value="weekly">Per Week</option>
+              <option value="hourly">Per Hour</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+          <div class="input-group">
+            <label class="input-label" for="hours-per-week">Hours / Week</label>
+            <input type="number" id="hours-per-week" class="input-control" value="40" min="1" max="100" />
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="tax-pct">Est. Tax Rate (%)</label>
+            <input type="number" id="tax-pct" class="input-control" placeholder="0" min="0" max="60" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+          <div class="input-group">
+            <label class="input-label" for="pf-pct">PF / 401(k) (%)</label>
+            <input type="number" id="pf-pct" class="input-control" placeholder="0" min="0" max="30" />
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="other-deductions">Monthly Ins. / Other</label>
+            <input type="number" id="other-deductions" class="input-control" placeholder="0" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Card -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="margin-bottom: 16px;">Net Take-Home Pay</h3>
+
+          <div class="result-box">
+            <div style="font-size: 0.88rem; color: var(--text-sub);">Estimated Monthly In-Hand</div>
+            <div class="result-val" id="res-net-monthly">$0.00</div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Annual Take-Home</div>
+              <div id="res-net-annual" style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-top: 2px;">$0.00</div>
+            </div>
+            <div style="background: var(--bg-input); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Annual Taxes & Deductions</div>
+              <div id="res-total-tax" style="font-size: 1.15rem; font-weight: 800; color: var(--accent-rose); margin-top: 2px;">$0.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wage Conversion Matrix Table Card -->
+    <div class="card">
+      <h3 style="margin-bottom: 16px; font-size: 1.1rem;">📊 Wage Equivalent Breakdown</h3>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+          <thead>
+            <tr style="background: var(--bg-input); border-bottom: 2px solid var(--border-color);">
+              <th style="padding: 10px; border: 1px solid var(--border-color);">Payment Period</th>
+              <th style="padding: 10px; border: 1px solid var(--border-color);">Gross Salary</th>
+              <th style="padding: 10px; border: 1px solid var(--border-color); color: var(--accent-rose);">Deductions</th>
+              <th style="padding: 10px; border: 1px solid var(--border-color); color: var(--primary);">Net Take-Home</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 700;">Hourly Rate</td>
+              <td id="row-gross-hr" style="padding: 8px 10px; border: 1px solid var(--border-color);">$28.85</td>
+              <td id="row-ded-hr" style="padding: 8px 10px; border: 1px solid var(--border-color); color: var(--accent-rose);">$6.35</td>
+              <td id="row-net-hr" style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 800; color: var(--primary);">$22.50</td>
+            </tr>
+            <tr style="background: rgba(0,0,0,0.02);">
+              <td style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 700;">Daily Rate (8 hrs)</td>
+              <td id="row-gross-day" style="padding: 8px 10px; border: 1px solid var(--border-color);">$230.77</td>
+              <td id="row-ded-day" style="padding: 8px 10px; border: 1px solid var(--border-color); color: var(--accent-rose);">$50.77</td>
+              <td id="row-net-day" style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 800; color: var(--primary);">$180.00</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 700;">Weekly Rate</td>
+              <td id="row-gross-wk" style="padding: 8px 10px; border: 1px solid var(--border-color);">$1,153.85</td>
+              <td id="row-ded-wk" style="padding: 8px 10px; border: 1px solid var(--border-color); color: var(--accent-rose);">$253.85</td>
+              <td id="row-net-wk" style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 800; color: var(--primary);">$900.00</td>
+            </tr>
+            <tr style="background: rgba(0,0,0,0.02);">
+              <td style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 700;">Bi-Weekly (2 Weeks)</td>
+              <td id="row-gross-biwk" style="padding: 8px 10px; border: 1px solid var(--border-color);">$2,307.69</td>
+              <td id="row-ded-biwk" style="padding: 8px 10px; border: 1px solid var(--border-color); color: var(--accent-rose);">$507.69</td>
+              <td id="row-net-biwk" style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 800; color: var(--primary);">$1,800.00</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 700;">Monthly Pay</td>
+              <td id="row-gross-mo" style="padding: 8px 10px; border: 1px solid var(--border-color);">$5,000.00</td>
+              <td id="row-ded-mo" style="padding: 8px 10px; border: 1px solid var(--border-color); color: var(--accent-rose);">$1,100.00</td>
+              <td id="row-net-mo" style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 800; color: var(--primary);">$3,900.00</td>
+            </tr>
+            <tr style="background: rgba(0,0,0,0.02);">
+              <td style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 700;">Annual Salary</td>
+              <td id="row-gross-yr" style="padding: 8px 10px; border: 1px solid var(--border-color);">$60,000.00</td>
+              <td id="row-ded-yr" style="padding: 8px 10px; border: 1px solid var(--border-color); color: var(--accent-rose);">$13,200.00</td>
+              <td id="row-net-yr" style="padding: 8px 10px; border: 1px solid var(--border-color); font-weight: 800; color: var(--primary);">$46,800.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="../../assets/images/logo-icon.png" alt="Numbora" style="width: 22px; height: 22px; object-fit: contain;" />
+        <span style="font-weight: 700; color: var(--text-main);">Numbora</span>
+        <span style="color: var(--text-muted); font-size: 0.75rem;">• Count on Everything</span>
+      </div>
+      <div>© 2026 Numbora. Fast & private web tools.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/utilities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
